@@ -8,7 +8,7 @@ pipeline {
 
             steps {
 
-                git credentialsId: 'Github', url: ''
+                git credentialsId: 'Github', url: 'https://github.com/madhav2903/Python.git'
 
             }
 
