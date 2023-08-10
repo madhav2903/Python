@@ -27,7 +27,7 @@ pipeline {
 
             steps('Test python') {
 
-                    sh "python test.py"
+                    sh "python manage.py"
 
                 }
 
