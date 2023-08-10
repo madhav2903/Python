@@ -21,9 +21,26 @@ pipeline {
                 sh 'pip install -r requirements.txt'
             
         }
+    
+        post {
+        always {
+            archiveArtifacts artifacts: '**/*.whl', onlyIfSuccessful: true
+        }
     }
+        }
 
-        stage('Test') {
+        stage('Test 1') {
+
+            steps('Test python') {
+
+                    sh "python manage.py"
+
+                }
+
+            }
+        
+
+        stage('Test 2') {
 
             steps('SonarQube Analysis') {
                 
@@ -35,7 +52,6 @@ pipeline {
 
             }
         }
-
         stage('Deploy') {
 
             steps {
