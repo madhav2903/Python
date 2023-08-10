@@ -21,15 +21,9 @@ pipeline {
                 sh 'pip install -r requirements.txt'
             
         }
-    
-        post {
-        always {
-            archiveArtifacts artifacts: '**/*.whl', onlyIfSuccessful: true
-        }
-    }
         }
 
-        stage('Test 1') {
+        stage('Test') {
 
             steps('Test python') {
 
