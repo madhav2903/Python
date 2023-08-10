@@ -50,7 +50,7 @@ pipeline {
 
             steps {
                     deploy adapters: [tomcat9(credentialsId: 'tomcat', path: '', url: 'http://localhost:8081// /opt/tomcat/webapps/')], contextPath: 'null', war: '**/*.war'//
-                    //deploy adapters: [tomcat9(credentialsId: 'tomcat', path: '/home/fs-shubhranshu/Tomcat/webapps', url: 'http://localhost:8081')], contextPath: '/', war: '/var/lib/jenkins/workspace/ci-cd pipeline/target/*.war'
+                
 
             }
 
