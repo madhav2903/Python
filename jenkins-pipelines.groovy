@@ -18,7 +18,7 @@ pipeline {
           
              steps {
         
-                sh "mvn clean package"
+                sh 'pip install -r requirements.txt'
             
         }
     }
