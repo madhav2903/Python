@@ -4,7 +4,7 @@ COPY requirements.txt src
 COPY .vscode src src/.vscode
 COPY core src/core
 COPY .env src
-COPY manage.py
+COPY manage.py src
 WORKDIR src
 RUN pip install -r requirements.txt
 EXPOSE 8086
