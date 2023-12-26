@@ -37,24 +37,26 @@ pipeline {
         stage('Sonarqube Testing') {
 
             steps('SonarQube Analysis') {
+
+                def scannerHome = tool 'SonarQube Scanner 2.8';
                 
                 withSonarQubeEnv('sonarserver') {
 
-                    sh "mvn sonar:sonar"
+                    sh "${scannerHome}/bin/sonar-scanner"
 
                 }
 
             }
         }
-        stage('Deploy-to-Tomcat') {
+        // stage('Deploy-to-Tomcat') {
 
-            steps {
-                    deploy adapters: [tomcat9(credentialsId: 'tomcat', path: '', url: 'http://localhost:8181// /opt/tomcat/webapps/')], contextPath: 'null', war: '**/*.war'//
+        //     steps {
+        //             deploy adapters: [tomcat9(credentialsId: 'tomcat', path: '', url: 'http://localhost:8181// /opt/tomcat/webapps/')], contextPath: 'null', war: ''//
                 
 
-            }
+        //     }
 
-        }
+        // }
 
         
     }
