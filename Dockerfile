@@ -8,4 +8,4 @@ COPY manage.py src
 WORKDIR src
 RUN pip install -r requirements.txt
 EXPOSE 8086
-CMD ["python","8086"]
+CMD ["python","manage.py","runserver"]
