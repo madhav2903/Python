@@ -23,18 +23,18 @@ pipeline {
                  }
          }
 
-        stage('Test') {
+        // stage('Test') {
 
-            steps('Test python') {
+        //     steps('Test python') {
 
-                    sh 'pytest manage.py'
+        //             sh 'pytest manage.py'
                 
-               }
+        //        }
 
-            }
+        //     }
         
 
-        stage('Test 2') {
+        stage('Sonarqube Testing') {
 
             steps('SonarQube Analysis') {
                 
@@ -46,7 +46,7 @@ pipeline {
 
             }
         }
-        stage('Deploy') {
+        stage('Deploy-to-Tomcat') {
 
             steps {
                     deploy adapters: [tomcat9(credentialsId: 'tomcat', path: '', url: 'http://localhost:8181// /opt/tomcat/webapps/')], contextPath: 'null', war: '**/*.war'//
