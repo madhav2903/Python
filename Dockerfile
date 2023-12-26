@@ -8,5 +8,5 @@ COPY manage.py src
 WORKDIR src
 RUN pip install -r requirements.txt
 EXPOSE 8086
-CMD ["python", "./test.py"]
+CMD ["python"]
 
