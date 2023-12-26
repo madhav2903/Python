@@ -18,10 +18,8 @@ pipeline {
           
              steps {
         
-                script {
                        sh 'pip install -r requirements.txt'
-                       }
-            
+                       
                  }
          }
 
@@ -29,11 +27,8 @@ pipeline {
 
             steps('Test python') {
 
-                script {
-                    sh """
-                    pytest manage.py
-                    """
-                  }
+                    sh 'pytest manage.py'
+                
                }
 
             }
